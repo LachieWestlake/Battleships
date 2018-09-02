@@ -1,3 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Security;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.VisualBasic;
+
 // '' <summary>
 // '' The SeaGrid is the grid upon which the ships are deployed.
 // '' </summary>
@@ -45,12 +58,12 @@ public class SeaGrid : ISeaGrid {
     }
     
     public TileView this[int x, int y] {
+        get
+        {
+            return _GameTiles(x, y).View;
+        }
     }
-}
-Endclass Unknown {
-}
 
-    
     // '' <summary>
     // '' AllDeployed checks if all the ships are deployed
     // '' </summary>
@@ -67,7 +80,7 @@ Endclass Unknown {
         }
     }
     
-    public DummyClass(Dictionary<ShipName, Ship> ships) {
+    public SeaGrid(Dictionary<ShipName, Ship> ships) {
         // fill array with empty Tiles
         int i;
         for (i = 0; (i 
@@ -184,3 +197,5 @@ Endclass Unknown {
         }
         
     }
+}
+    
