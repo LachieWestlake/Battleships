@@ -136,7 +136,7 @@ namespace Battleships
             {
                 Score s;
     
-                s = _Scores.Item[i];
+                s = _Scores[i];
     
                 // for scores 1 - 9 use 01 - 09
                 if (i < 9)
