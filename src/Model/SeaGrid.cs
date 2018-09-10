@@ -182,6 +182,7 @@ public class SeaGrid : ISeaGrid
 				return new AttackResult(ResultOfAttack.Miss, "missed", row, col);
 			}
 
+			//FIXME it should not be hardcoded that the 'enemy's' ship was destroyed. This will allow the game to display the AI destroyed your battleship as it is the human player that views the messages
 			//all ship's tiles have been destroyed
 			if (_GameTiles[row, col].Ship.IsDestroyed) {
 				_GameTiles[row, col].Shot = true;
