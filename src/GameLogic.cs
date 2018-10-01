@@ -17,11 +17,26 @@ static class GameLogic
 		GameResources.LoadResources();
 
 		SwinGame.PlayMusic(GameResources.GameMusic("Background"));
+		bool musicPlaying = true;
 
 		//Game Loop
 		do {
 			GameController.HandleUserInput();
 			GameController.DrawScreen();
+
+			if (SwinGame.KeyTyped(KeyCode.vk_m))
+			{
+				if (musicPlaying)
+				{
+					SwinGame.PauseMusic();
+					musicPlaying = false;
+				}
+				else
+				{
+					SwinGame.ResumeMusic();
+					musicPlaying = true;
+				}
+			}
 		} while (!(SwinGame.WindowCloseRequested() == true | GameController.CurrentState == GameState.Quitting));
 
 		SwinGame.StopMusic();
