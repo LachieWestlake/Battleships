@@ -178,7 +178,7 @@ static class HighScoreController
 			int x = 0;
 			x = SCORES_LEFT + SwinGame.TextWidth(GameResources.GameFont("Courier"), "Name: ");
 
-			SwinGame.StartReadingText(Color.White, NAME_WIDTH, GameResources.GameFont("Courier"), x, ENTRY_TOP);
+			SwinGame.StartReadingText(Color.White, NAME_WIDTH + 1, GameResources.GameFont("Courier"), x, ENTRY_TOP);
 
 			//Read the text from the user
 			while (SwinGame.ReadingText()) {
@@ -190,7 +190,16 @@ static class HighScoreController
 				SwinGame.RefreshScreen();
 			}
 
-			s.Name = SwinGame.TextReadAsASCII();
+            // Shorten name entry down to 3 to fit the highscore table
+            string tempName = SwinGame.TextReadAsASCII();
+			if (tempName.Length < 3)
+			{
+				s.Name = tempName;
+			}
+			else
+			{
+				s.Name = tempName.Substring(0, 3);
+			}
 
 			if (s.Name.Length < 3) {
 				s.Name = s.Name + new string(Convert.ToChar(" "), 3 - s.Name.Length);
