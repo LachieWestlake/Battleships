@@ -58,25 +58,10 @@ public static class GameResources
 
 	private static void LoadMusic()
 	{
-		Random rnd = new Random();
-		int songNumber = rnd.Next(1, 5);
-
-		//FIXME only songs 1 and 4 play correctly
-		switch (songNumber)
-		{
-			case 1:
-				NewMusic("Background", "horrordrone.mp3");
-				break;
-			case 2:
-				NewMusic("Background", "cinder.mp3");;
-				break;
-			case 3:
-				NewMusic("Background", "halogenichive.mp3");
-				break;
-			case 4:
-				NewMusic("Background", "trickypiramids.mp3");
-				break;
-		}
+			NewMusic("Background1", "horrordrone.mp3");
+			NewMusic("Background2", "cinder.wav");
+			NewMusic("Background3", "halogenichive.wav");
+			NewMusic("Background4", "trickypiramids.wav");
 	}
 
 	/// <summary>
