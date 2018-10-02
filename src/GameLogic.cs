@@ -18,7 +18,7 @@ static class GameLogic
 		Random rnd = new Random();
 		int songNumber = rnd.Next(1, 5);
 
-		//FIXME only songs 1 and 4 play correctly
+		bool musicPlaying = true;
 		switch (songNumber)
 		{
 			case 1:
@@ -34,12 +34,25 @@ static class GameLogic
 				SwinGame.PlayMusic(GameResources.GameMusic("Background4"));
 				break;
 		}
-		
 
 		//Game Loop
 		do {
 			GameController.HandleUserInput();
 			GameController.DrawScreen();
+
+			if (SwinGame.KeyTyped(KeyCode.vk_m))
+			{
+				if (musicPlaying)
+				{
+					SwinGame.PauseMusic();
+					musicPlaying = false;
+				}
+				else
+				{
+					SwinGame.ResumeMusic();
+					musicPlaying = true;
+				}
+			}
 		} while (!(SwinGame.WindowCloseRequested() == true | GameController.CurrentState == GameState.Quitting));
 
 		SwinGame.StopMusic();
