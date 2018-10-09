@@ -60,7 +60,10 @@ public static class GameResources
 
 	private static void LoadMusic()
 	{
-		NewMusic("Background", "horrordrone.mp3");
+			NewMusic("Background1", "horrordrone.mp3");
+			NewMusic("Background2", "cinder.wav");
+			NewMusic("Background3", "halogenichive.wav");
+			NewMusic("Background4", "trickypiramids.wav");
 	}
 
 	/// <summary>

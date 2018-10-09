@@ -15,9 +15,25 @@ static class GameLogic
 
 		//Load Resources
 		GameResources.LoadResources();
+		Random rnd = new Random();
+		int songNumber = rnd.Next(1, 5);
 
-		SwinGame.PlayMusic(GameResources.GameMusic("Background"));
 		bool musicPlaying = true;
+		switch (songNumber)
+		{
+			case 1:
+				SwinGame.PlayMusic(GameResources.GameMusic("Background1"));
+				break;
+			case 2:
+				SwinGame.PlayMusic(GameResources.GameMusic("Background2"));
+				break;
+			case 3:
+				SwinGame.PlayMusic(GameResources.GameMusic("Background3"));
+				break;
+			case 4:
+				SwinGame.PlayMusic(GameResources.GameMusic("Background4"));
+				break;
+		}
 
 		//Game Loop
 		do {
